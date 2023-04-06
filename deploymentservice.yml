@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: firstimage-deployment
+  name: nodeapp-deployment
   labels:
-    app: firstimage
+    app: nodeapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: firstimage
+      app: nodeapp
   template:
     metadata:
       labels:
-        app: firstimage 
+        app: nodeapp 
     spec:
       containers:
       - name: nodeserver
-        image: raja9985259937/firstimage:latest
+        image: raja9985259937/firstimage
         ports:
         - containerPort: 3000
         
@@ -26,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: firstimage-service
+  name: nodeapp-service
 spec:
   selector:
-    app: firstimage 
+    app: nodeapp 
   type: LoadBalancer
   ports:
   - protocol: TCP
