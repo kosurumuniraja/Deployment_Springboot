@@ -45,7 +45,8 @@ pipeline {
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          sh 'cd ${WORKSPACE}'
+          sh 'cd /var/lib/jenkins/workspace/hello-world'
+          sh 'ls -l'
           kubernetesDeploy(configs: "deploymentservice.yml", kubeconfigId: "kubernetes")
         }
       }
