@@ -5,7 +5,7 @@ pipeline {
     dockerImage = ""
   }
 
-  agent slave
+  agent { label 'Slave' }
 
   stages {
     stage('Git checkout'){
